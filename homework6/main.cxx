@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-auto func(int int_val, std::string first_arg) {
+auto change_int(int int_val, std::string first_arg) {
   for (int i = 0; i >= 0; i++) {
     int_val += first_arg[i];
     if (i >= static_cast<int>(first_arg.size())) {
@@ -8,6 +8,10 @@ auto func(int int_val, std::string first_arg) {
     }
   }
     return int_val;
+}
+
+auto key_calc(int int_val, char first_arg_first_letter) {
+  return (int_val ^ first_arg_first_letter * 3);
 }
 
 int main(int number_of_args, char *arg_container[]) {
@@ -19,10 +23,10 @@ int main(int number_of_args, char *arg_container[]) {
     auto int_val{0};
     std::string first_arg{arg_container[1]};
 
-    int_val = func(int_val, first_arg);
+    int_val = change_int(int_val, first_arg);
     
     std::cout << int_val << std::endl;
-    if ((int_val ^ first_arg_first_letter * 3) << (program_name_val & 0x1f) == second_arg_string) {
+    if ((key_calc(int_val, first_arg_first_letter)) << (program_name_val & 0x1f) == second_arg_string) {
       std::cout << "Correct!" << std::endl;
     } else {
       std::cout << "Wrong!" << std::endl;
