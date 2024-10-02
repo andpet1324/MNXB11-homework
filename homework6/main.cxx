@@ -7,12 +7,11 @@ int main(int number_of_args, char *arg_container[]) {
     auto program_name_val{program_name.size()};
     auto second_arg_string{std::atoi(arg_container[2])};
     auto zero1{0};
-    auto zero2{0};
     std::string first_arg{arg_container[1]};
     while (true) {
-      zero1 += first_arg[zero2
+      zero1 += first_arg[zero1
 ++];
-      if (zero2
+      if (zero1
  >= static_cast<int>(first_arg.size())) {
         break;
       }
